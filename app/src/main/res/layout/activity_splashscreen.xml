@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<ScrollView android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,32 +10,42 @@
     tools:context=".Splashscreen"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/backgr"
         android:id="@+id/liniarlogo">
-        <ImageView
-            android:id="@+id/logo2"
-            android:layout_width="wrap_content"
-            android:layout_height="350dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/logo_transparent"
-            android:background="#e1a764"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#e1a764">
+            <ImageView
+                android:id="@+id/logo2"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/logo_transparent_biru"
+                android:background="#e1a764"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:scaleX="6"
+                android:scaleY="6"
+                android:src="@drawable/logo_transparent_whitee" />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/skyline">
+                android:background="@drawable/skyline"
+                android:layout_marginTop="420dp">
             </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
 
 
 </LinearLayout>
+<!--</ScrollView>-->
