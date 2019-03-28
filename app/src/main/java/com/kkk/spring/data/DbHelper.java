@@ -33,8 +33,8 @@ public class DbHelper extends SQLiteAssetHelper {
         db.insert(KuisEntry.TABLE_QUEST, null, cv);
     }
 
-    public List<soal> getAlpQuestion(){
-        List<soal> questionList = new ArrayList<>();
+    public ArrayList<soal> getAlpQuestion(){
+        ArrayList<soal> questionList = new ArrayList<>();
         db = getReadableDatabase();
         Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 1 ORDER BY RANDOM()LIMIT 10",null);
         if(c.moveToFirst()){
@@ -48,14 +48,33 @@ public class DbHelper extends SQLiteAssetHelper {
                 questionList.add(soal);
             }while(c.moveToNext());
         }
-     c.close();
+        c.close();
         return questionList;
     }
 
-    public List<soal> getWordQuestion(){
-        List<soal> questionList = new ArrayList<>();
+    public ArrayList<soal> getWordQuestion(){
+        ArrayList<soal> questionList = new ArrayList<>();
         db = getReadableDatabase();
-        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 2 ORDER BY RANDOM()LIMIT 10",null);
+        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 2 ORDER BY RANDOM()LIMIT 5",null);
+        if(c.moveToFirst()){
+            do{
+                soal soal = new soal();
+                soal.setQuestion(c.getString(c.getColumnIndex("question")));
+                soal.setOpta(c.getString(c.getColumnIndex("opt1")));
+                soal.setOptb(c.getString(c.getColumnIndex("opt2")));
+                soal.setOptc(c.getString(c.getColumnIndex("opt3")));
+                soal.setAnswer(c.getString(c.getColumnIndex("answer")));
+                questionList.add(soal);
+            }while(c.moveToNext());
+        }
+        c.close();
+        return questionList;
+    }
+
+    public ArrayList<soal> getSenQuestion(){
+        ArrayList<soal> questionList = new ArrayList<>();
+        db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 3 ORDER BY RANDOM()LIMIT 5",null);
         if(c.moveToFirst()){
             do{
                 soal soal = new soal();

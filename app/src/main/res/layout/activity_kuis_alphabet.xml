@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:background="#ae6113">
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="180dp"
                     android:layout_height="35dp"
                     android:layout_centerInParent="true"
                     android:scaleX="6"
@@ -37,75 +37,74 @@
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
-        <RelativeLayout
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:background="@drawable/backgr">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <TextView
-                android:id="@+id/timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+            android:background="#784818"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
                 android:gravity="center"
-                android:text="00:30"
-                android:textColor="#ffff"
-                android:textSize="35sp" />
-        </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="120dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
-                android:paddingTop="30dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_navigate_next_black_24dp"/>
-                <TextView
-                    android:id="@+id/count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:text=""
-                    android:textColor="#ffff"
-                    android:textSize="25dp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="100dp"
-                android:layout_height="70dp"
-                android:layout_centerVertical="true"
-                android:paddingTop="30dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_done_black_24dp"/>
-                <TextView
-                    android:id="@+id/score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:text=""
-                    android:textColor="#ffff"
-                    android:textSize="25dp" />
-            </RelativeLayout>
-        </RelativeLayout>
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:text="0"
+                        android:textColor="#ffff"
+                        android:textSize="30dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_toEndOf="@id/score"
+                        android:src="@drawable/ic_done_black_24dp" />
+                    <TextView
+                        android:id="@+id/count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:paddingRight="15dp"
+                        android:text="/10"
+                        android:textColor="#ffff"
+                        android:textSize="30dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#ffff"
+                        android:textSize="40dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:background="#FFFFF0"
             android:padding="10dp"
             android:paddingLeft="10dp"
@@ -130,14 +129,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/button_backfround"
+            android:background="@drawable/lengkung"
             android:gravity="center"
             android:paddingLeft="10dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/lengkung"
-            android:orientation="horizontal">
             <Button
                 android:id="@+id/opta"
                 android:layout_width="wrap_content"
@@ -145,7 +139,6 @@
                 android:background="@android:color/transparent"
                 android:text="Confirm"
                 android:textSize="20dp"/>
-        </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -183,9 +176,8 @@
                 android:textSize="20dp"/>
         </RelativeLayout>
 
-
-
     </LinearLayout>
+
 
 
     <!--<LinearLayout-->
