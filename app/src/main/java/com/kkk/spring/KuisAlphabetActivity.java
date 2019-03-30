@@ -5,16 +5,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Parcelable;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -27,16 +27,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class KuisAlphabetActivity extends AppCompatActivity {
 
     public static String EXTRA_SCORE = "extra score";
-    public static final long COUNTDOWN_IN_MILLIS = 15000;
+    public static final long COUNTDOWN_IN_MILLIS = 10000;
 
-    private static final String KEY_SCORE_A = "keyScore";
-    private static final String KEY_QUESTION_COUNT_A = "keyQuestionCountA";
-    private static final String KEY_MILLIS_LEFT_A = "keyMillisLeftA";
-    private static final String KEY_ANSWERED_A = "keyAnsweredA";
-    private static final String KEY_QUESTION_LIST_A = "keyQuestionListA";
+    private static final String KEY_SCORE_S = "keyScore";
+    private static final String KEY_QUESTION_COUNT_S = "keyQuestionCountA";
+    private static final String KEY_MILLIS_LEFT_S = "keyMillisLeftA";
+    private static final String KEY_ANSWERED_S = "keyAnsweredA";
+    private static final String KEY_QUESTION_LIST_S = "keyQuestionListA";
 
     private TextView soal;
     private TextView txtscore;
@@ -61,11 +63,7 @@ public class KuisAlphabetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kuis_alphabet);
-
-
-        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-
+        setContentView(R.layout.activity_kuis_kalimat);
         DatabaseAccess databaseAccess=DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
 
@@ -83,19 +81,19 @@ public class KuisAlphabetActivity extends AppCompatActivity {
 
         if(savedInstanceState == null) {
             DbHelper dbHelper = new DbHelper(this);
-            questionList = (ArrayList<com.kkk.spring.soal>) dbHelper.getAlpQuestion();
+            questionList = dbHelper.getAlpQuestion();
             questionCountTotal = questionList.size();
 
             showNextQuestion();
         }
         else{
-            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST_A);
+            questionList = savedInstanceState.getParcelableArrayList(KEY_QUESTION_LIST_S);
             questionCountTotal = questionList.size();
-            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT_A);
+            questionCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT_S);
             currentQuestion = questionList.get(questionCounter - 1);
-            score = savedInstanceState.getInt(KEY_SCORE_A);
-            timeLeftInMillis = savedInstanceState.getLong(KEY_MILLIS_LEFT_A);
-            answer = savedInstanceState.getBoolean(KEY_ANSWERED_A);
+            score = savedInstanceState.getInt(KEY_SCORE_S);
+            timeLeftInMillis = savedInstanceState.getLong(KEY_MILLIS_LEFT_S);
+            answer = savedInstanceState.getBoolean(KEY_ANSWERED_S);
 
             if(!answer){
                 startCountDown();
@@ -163,7 +161,16 @@ public class KuisAlphabetActivity extends AppCompatActivity {
                 optb.setTextColor(Color.GREEN);
                 optc.setTextColor(Color.RED);
                 if(questionCounter < questionCountTotal) {
-                    wrongAnswer();
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
+                    msgBox.setMessage("Wrong Answer!");
+                    msgBox.setCancelable(false);
+                    msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showNextQuestion();
+                        }
+                    });
+                    msgBox.create().show();
                 }
                 else{
                     done();
@@ -174,7 +181,16 @@ public class KuisAlphabetActivity extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 optc.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    wrongAnswer();
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
+                    msgBox.setMessage("Wrong Answer!");
+                    msgBox.setCancelable(false);
+                    msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showNextQuestion();
+                        }
+                    });
+                    msgBox.create().show();
                 }
                 else{
                     done();
@@ -217,7 +233,16 @@ public class KuisAlphabetActivity extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 opta.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    wrongAnswer();
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
+                    msgBox.setMessage("Wrong Answer!");
+                    msgBox.setCancelable(false);
+                    msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showNextQuestion();
+                        }
+                    });
+                    msgBox.create().show();
                 }
                 else{
                     done();
@@ -228,7 +253,16 @@ public class KuisAlphabetActivity extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 optc.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    wrongAnswer();
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
+                    msgBox.setMessage("Wrong Answer!");
+                    msgBox.setCancelable(false);
+                    msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showNextQuestion();
+                        }
+                    });
+                    msgBox.create().show();
                 }
                 else{
                     done();
@@ -268,7 +302,16 @@ public class KuisAlphabetActivity extends AppCompatActivity {
                 optc.setTextColor(Color.RED);
                 optb.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    wrongAnswer();
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
+                    msgBox.setMessage("Wrong Answer!");
+                    msgBox.setCancelable(false);
+                    msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showNextQuestion();
+                        }
+                    });
+                    msgBox.create().show();
                 }
                 else{
                     done();
@@ -279,7 +322,16 @@ public class KuisAlphabetActivity extends AppCompatActivity {
                 optb.setTextColor(Color.RED);
                 opta.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
-                    wrongAnswer();
+                    AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
+                    msgBox.setMessage("Wrong Answer!");
+                    msgBox.setCancelable(false);
+                    msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showNextQuestion();
+                        }
+                    });
+                    msgBox.create().show();
                 }
                 else{
                     done();
@@ -341,7 +393,7 @@ public class KuisAlphabetActivity extends AppCompatActivity {
 
         timer.setText(timeFormat);
 
-        if(timeLeftInMillis < 10000){
+        if(timeLeftInMillis < 5000){
             timer.setTextColor(Color.RED);
         }
         else{
@@ -351,40 +403,49 @@ public class KuisAlphabetActivity extends AppCompatActivity {
 
     private void done(){
         if(score >= (questionCountTotal)/1.25){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
-            msgBox.setMessage("Good Job:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Excellent!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.bagus);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
         else if(score > (questionCountTotal)/3 && score < (questionCountTotal)/1.25){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
-            msgBox.setMessage("Good:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Good!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.lumayan);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
         else{
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
-            msgBox.setMessage("Keep Fighting:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Loser!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.jelek);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
 
     }
@@ -427,40 +488,11 @@ public class KuisAlphabetActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY_SCORE_A, score);
-        outState.putInt(KEY_QUESTION_COUNT_A, questionCounter);
-        outState.putLong(KEY_MILLIS_LEFT_A, timeLeftInMillis);
-        outState.putBoolean(KEY_ANSWERED_A, answer);
-        outState.putParcelableArrayList(KEY_QUESTION_LIST_A, (ArrayList<? extends Parcelable>) questionList);
-
-    }
-
-    private void wrongAnswer(){
-        Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
-            msgBox.setMessage("Wrong Answer!");
-            msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    showNextQuestion();
-                }
-            });
-            msgBox.create().show();
-        }
-        else {
-            vibrator.vibrate(200);
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisAlphabetActivity.this);
-            msgBox.setMessage("Wrong Answer!");
-            msgBox.setPositiveButton("Next", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    showNextQuestion();
-                }
-            });
-            msgBox.create().show();
-        }
+        outState.putInt(KEY_SCORE_S, score);
+        outState.putInt(KEY_QUESTION_COUNT_S, questionCounter);
+        outState.putLong(KEY_MILLIS_LEFT_S, timeLeftInMillis);
+        outState.putBoolean(KEY_ANSWERED_S, answer);
+        outState.putParcelableArrayList(KEY_QUESTION_LIST_S, (ArrayList<? extends Parcelable>) questionList);
 
     }
 }

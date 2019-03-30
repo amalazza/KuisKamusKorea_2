@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--<ScrollView android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--android:layout_height="match_parent"-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android">-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KuisKalimatActivity"
+    tools:context=".KuisAlphabetActivity"
+    android:orientation="vertical"
     android:background="#FFFFF0">
 
     <LinearLayout
@@ -17,39 +18,37 @@
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:background="#ae6113"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#ae6113">
                 <ImageView
-                    android:layout_width="180dp"
-                    android:layout_height="35dp"
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
                     android:layout_centerInParent="true"
-                    android:scaleX="6"
                     android:scaleY="7"
+                    android:scaleX="6"
                     android:src="@drawable/alpha" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="#784818"
+            android:layout_height="140dp"
+            android:background="#513315"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="150dp"
+                android:gravity="center">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="80dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="0dp"
@@ -58,53 +57,44 @@
                     <TextView
                         android:id="@+id/score"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:text="0"
                         android:textColor="#ffff"
-                        android:textSize="30dp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="0dp"
-                        android:layout_toEndOf="@id/score"
-                        android:src="@drawable/ic_done_black_24dp" />
+                        android:textSize="40dp" />
                     <TextView
                         android:id="@+id/count"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:layout_alignParentRight="true"
-                        android:paddingRight="15dp"
+                        android:paddingRight="20dp"
                         android:text="/10"
                         android:textColor="#ffff"
-                        android:textSize="30dp" />
+                        android:textSize="40dp" />
                 </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/timer"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="#ffff"
-                    android:textSize="40dp" />
+                    android:gravity="center_horizontal"
+                    android:layout_centerInParent="true">
+                    <TextView
+                        android:id="@+id/timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="00:30"
+                        android:textColor="#ffff"
+                        android:textSize="70dp" />
+                </RelativeLayout>
             </RelativeLayout>
-            </LinearLayout>
         </android.support.v7.widget.Toolbar>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
             android:background="#FFFFF0"
             android:padding="10dp"
             android:paddingLeft="10dp"
@@ -114,9 +104,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="soalnya"
+                android:text="피"
                 android:textAlignment="center"
-                android:textSize="40dp" />
+                android:textSize="130dp" />
             <TextView
                 android:id="@+id/answer"
                 android:layout_width="match_parent"
@@ -125,27 +115,28 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/lengkung"
             android:gravity="center"
             android:paddingLeft="10dp">
+
             <Button
                 android:id="@+id/opta"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="Confirm"
-                android:textSize="20dp"/>
+                android:text="PI"
+                android:textSize="30dp"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/lengkung"
             android:gravity="center"
             android:paddingLeft="10dp">
@@ -155,13 +146,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="Confirm"
-                android:textSize="20dp"/>
+                android:text="BI"
+                android:textSize="30dp"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="500dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:background="@drawable/lengkung"
             android:gravity="center"
@@ -172,10 +163,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="Confirm"
-                android:textSize="20dp"/>
+                android:text="TI"
+                android:textSize="30dp"/>
         </RelativeLayout>
 
     </LinearLayout>
+
 </LinearLayout>
-<!--</ScrollView>-->
+    <!--</ScrollView>-->

@@ -1,6 +1,7 @@
 package com.kkk.spring;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.webkit.WebViewClient;
 public class KamusActivity extends AppCompatActivity {
     private WebView webView;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +21,10 @@ public class KamusActivity extends AppCompatActivity {
 
         webView = (WebView) findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://zkorean.com/english-korean-dictionary");
+        webView.loadUrl("https://krdict.korean.go.kr/eng");
 
         WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
         webSettings.getAllowContentAccess();
     }
 

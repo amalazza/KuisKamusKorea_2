@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,10 +26,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class KuisKalimatActivity extends AppCompatActivity {
 
     public static String EXTRA_SCORE = "extra score";
-    public static final long COUNTDOWN_IN_MILLIS = 30000;
+    public static final long COUNTDOWN_IN_MILLIS = 20000;
 
     private static final String KEY_SCORE_S = "keyScore";
     private static final String KEY_QUESTION_COUNT_S = "keyQuestionCountA";
@@ -389,7 +392,7 @@ public class KuisKalimatActivity extends AppCompatActivity {
 
         timer.setText(timeFormat);
 
-        if(timeLeftInMillis < 10000){
+        if(timeLeftInMillis < 5000){
             timer.setTextColor(Color.RED);
         }
         else{
@@ -399,40 +402,49 @@ public class KuisKalimatActivity extends AppCompatActivity {
 
     private void done(){
         if(score >= (questionCountTotal)/1.25){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKalimatActivity.this);
-            msgBox.setMessage("Good Job:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Excellent!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.bagus);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
         else if(score > (questionCountTotal)/3 && score < (questionCountTotal)/1.25){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKalimatActivity.this);
-            msgBox.setMessage("Good:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Good!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.lumayan);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
         else{
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKalimatActivity.this);
-            msgBox.setMessage("Keep Fighting:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Loser!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.jelek);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
 
     }

@@ -29,10 +29,13 @@ import com.kkk.spring.data.DbHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class KuisKataActivity extends AppCompatActivity {
 
     public static String EXTRA_SCORE_WORD = "extra score";
-    public static final long COUNTDOWN_IN_MILLIS = 20000;
+    public static final long COUNTDOWN_IN_MILLIS = 15000;
 
     private static final String KEY_SCORE_W = "keyScoreW";
     private static final String KEY_QUESTION_COUNT_W = "keyQuestionCountW";
@@ -393,7 +396,7 @@ public class KuisKataActivity extends AppCompatActivity {
 
         timer.setText(timeFormat);
 
-        if(timeLeftInMillis < 10000){
+        if(timeLeftInMillis < 5000){
             timer.setTextColor(Color.RED);
         }
         else{
@@ -403,41 +406,51 @@ public class KuisKataActivity extends AppCompatActivity {
 
     private void done(){
         if(score >= (questionCountTotal)/1.25){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
-            msgBox.setMessage("Good Job:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Excellent!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.bagus);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
         else if(score > (questionCountTotal)/3 && score < (questionCountTotal)/1.25){
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
-            msgBox.setMessage("Good:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Good!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.lumayan);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
         else{
-            AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
-            msgBox.setMessage("Keep Fighting:"+score);
+            SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
-            msgBox.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
+            msgBox.setTitle("Loser!");
+            msgBox.setContentText("Your Score: "+score);
+            msgBox.setCustomImage(R.drawable.jelek);
+
+            msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
                     finishQuiz();
                 }
             });
-            msgBox.create().show();
+            msgBox.show();
         }
+
     }
     private void finishQuiz(){
         Intent resultIntent = new Intent();

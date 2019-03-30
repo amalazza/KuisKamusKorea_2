@@ -55,7 +55,7 @@ public class DbHelper extends SQLiteAssetHelper {
     public ArrayList<soal> getWordQuestion(){
         ArrayList<soal> questionList = new ArrayList<>();
         db = getReadableDatabase();
-        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 2 ORDER BY RANDOM()LIMIT 5",null);
+        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 2 ORDER BY RANDOM()LIMIT 10",null);
         if(c.moveToFirst()){
             do{
                 soal soal = new soal();
@@ -74,7 +74,7 @@ public class DbHelper extends SQLiteAssetHelper {
     public ArrayList<soal> getSenQuestion(){
         ArrayList<soal> questionList = new ArrayList<>();
         db = getReadableDatabase();
-        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 3 ORDER BY RANDOM()LIMIT 5",null);
+        Cursor c = db.rawQuery(" SELECT * FROM quiz WHERE idCategory = 3 ORDER BY RANDOM()LIMIT 10",null);
         if(c.moveToFirst()){
             do{
                 soal soal = new soal();
