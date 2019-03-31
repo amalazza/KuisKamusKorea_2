@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<ScrollView android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android">-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KuisKalimatActivity"
+    android:orientation="vertical"
+    android:background="#FFFFF0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#ae6113"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ae6113">
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:scaleY="7"
+                    android:scaleX="6"
+                    android:src="@drawable/sentence" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="#513315"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:paddingTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/white_coin"/>
+                    <TextView
+                        android:id="@+id/score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="23dp"
+                        android:text="0"
+                        android:textColor="#ffff"
+                        android:textSize="20dp"
+                        android:paddingLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp">
+                    <TextView
+                        android:id="@+id/count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:text="0/10"
+                        android:textColor="#ffff"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_centerInParent="true">
+                    <TextView
+                        android:id="@+id/timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="00:30"
+                        android:textColor="#ffff"
+                        android:textSize="30dp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="#FFFFF0"
+            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            <TextView
+                android:id="@+id/soal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="난 외롭지 않아"
+                android:textAlignment="center"
+                android:textSize="40dp" />
+            <TextView
+                android:id="@+id/answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/lengkung"
+            android:gravity="center"
+            android:paddingLeft="10dp">
+
+            <Button
+                android:id="@+id/opta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="I’m not lonely"
+                android:textSize="15dp"
+                android:textColor="@color/text_color"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/lengkung"
+            android:gravity="center"
+            android:paddingLeft="10dp">
+
+            <Button
+                android:id="@+id/optb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="I’m not crying"
+                android:textSize="15dp"
+                android:textColor="@color/text_color"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/lengkung"
+            android:gravity="center"
+            android:paddingLeft="10dp">
+
+            <Button
+                android:id="@+id/optc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="I’m not sad"
+                android:textSize="15dp"
+                android:textColor="@color/text_color"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+    <!--</ScrollView>-->
