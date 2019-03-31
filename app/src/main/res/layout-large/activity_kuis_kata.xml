@@ -39,7 +39,7 @@
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             android:background="#513315"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -55,24 +55,38 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
                     android:gravity="center">
-                    <TextView
-                        android:id="@+id/scoreWord"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentTop="true"
-                        android:text="0"
-                        android:textColor="#ffff"
-                        android:textSize="40dp" />
-                    <TextView
-                        android:id="@+id/countWord"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/white_coin"/>
+                        <TextView
+                            android:id="@+id/score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:text="0"
+                            android:textColor="#ffff"
+                            android:textSize="40dp"
+                            android:paddingLeft="10dp"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="80dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:paddingRight="20dp"
-                        android:text="/10"
-                        android:textColor="#ffff"
-                        android:textSize="40dp" />
+                        android:orientation="horizontal"
+                        android:paddingRight="15dp">
+                        <TextView
+                            android:id="@+id/count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:text="0/10"
+                            android:textColor="#ffff"
+                            android:textSize="40dp"/>
+                    </LinearLayout>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -80,7 +94,7 @@
                     android:gravity="center_horizontal"
                     android:layout_centerInParent="true">
                     <TextView
-                        android:id="@+id/timerWord"
+                        android:id="@+id/timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -130,7 +144,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="water"
-                android:textSize="30dp"/>
+                android:textSize="30dp"
+                android:textColor="@color/text_color"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -148,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="animal"
-                android:textSize="30dp"/>
+                android:textSize="30dp"
+                android:textColor="@color/text_color"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -165,7 +181,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="mountain"
-                android:textSize="30dp"/>
+                android:textSize="30dp"
+                android:textColor="@color/text_color"/>
         </RelativeLayout>
 
     </LinearLayout>

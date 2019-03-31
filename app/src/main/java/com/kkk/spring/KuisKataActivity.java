@@ -133,12 +133,9 @@ public class KuisKataActivity extends AppCompatActivity {
     }
 
     private void opta(){
-        final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(100);
+
         if(opta.getText().equals(answers.getText())){
             opta.setTextColor(Color.GREEN);
-            optb.setTextColor(Color.RED);
-            optc.setTextColor(Color.RED);
             score++;
             txtscore.setText("" + score);
             if(questionCounter < questionCountTotal){
@@ -160,10 +157,10 @@ public class KuisKataActivity extends AppCompatActivity {
         else{
             if(optb.getText().equals(answers.getText())){
 
-                opta.setTextColor(Color.RED);
                 optb.setTextColor(Color.GREEN);
-                optc.setTextColor(Color.RED);
                 if(questionCounter < questionCountTotal) {
+                    final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                    vibe.vibrate(100);
                     AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setCancelable(false);
@@ -180,10 +177,10 @@ public class KuisKataActivity extends AppCompatActivity {
                 }
             }
             else if(optc.getText().equals(answers.getText())) {
-                opta.setTextColor(Color.RED);
-                optb.setTextColor(Color.RED);
                 optc.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
+                    final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                    vibe.vibrate(100);
                     AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setCancelable(false);
@@ -205,11 +202,8 @@ public class KuisKataActivity extends AppCompatActivity {
 
 
     private void optb(){
-        final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(100);
+
         if(optb.getText().equals(answers.getText())){
-            opta.setTextColor(Color.RED);
-            optc.setTextColor(Color.RED);
             optb.setTextColor(Color.GREEN);
             score++;
             txtscore.setText("" + score);
@@ -232,10 +226,10 @@ public class KuisKataActivity extends AppCompatActivity {
         else{
             if(opta.getText().equals(answers.getText())){
 
-                optc.setTextColor(Color.RED);
-                optb.setTextColor(Color.RED);
                 opta.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
+                    final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                    vibe.vibrate(100);
                     AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setCancelable(false);
@@ -252,10 +246,10 @@ public class KuisKataActivity extends AppCompatActivity {
                 }
             }
             else if(optc.getText().equals(answers.getText())){
-                opta.setTextColor(Color.RED);
-                optb.setTextColor(Color.RED);
                 optc.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
+                    final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                    vibe.vibrate(100);
                     AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setCancelable(false);
@@ -275,13 +269,10 @@ public class KuisKataActivity extends AppCompatActivity {
     }
 
     private void optc(){
-        final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(100);
+
         if(optc.getText().equals(answers.getText())){
             score++;
             txtscore.setText("" + score);
-            opta.setTextColor(Color.RED);
-            optb.setTextColor(Color.RED);
             optc.setTextColor(Color.GREEN);
             if(questionCounter < questionCountTotal) {
                 AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
@@ -301,10 +292,10 @@ public class KuisKataActivity extends AppCompatActivity {
         }
         else{
             if(optb.getText().equals(answers.getText())){
-                opta.setTextColor(Color.RED);
-                optc.setTextColor(Color.RED);
                 optb.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
+                    final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                    vibe.vibrate(100);
                     AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setCancelable(false);
@@ -321,10 +312,10 @@ public class KuisKataActivity extends AppCompatActivity {
                 }
             }
             else if(opta.getText().equals(answers.getText())){
-                optc.setTextColor(Color.RED);
-                optb.setTextColor(Color.RED);
                 opta.setTextColor(Color.GREEN);
                 if(questionCounter < questionCountTotal) {
+                    final Vibrator vibe = (Vibrator) KuisKataActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                    vibe.vibrate(100);
                     AlertDialog.Builder msgBox = new AlertDialog.Builder(KuisKataActivity.this);
                     msgBox.setMessage("Wrong Answer!");
                     msgBox.setCancelable(false);
@@ -409,7 +400,7 @@ public class KuisKataActivity extends AppCompatActivity {
             SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
             msgBox.setTitle("Excellent!");
-            msgBox.setContentText("Your Score: "+score);
+            msgBox.setContentText("Your score is "+score);
             msgBox.setCustomImage(R.drawable.bagus);
 
             msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -424,7 +415,7 @@ public class KuisKataActivity extends AppCompatActivity {
             SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
             msgBox.setTitle("Good!");
-            msgBox.setContentText("Your Score: "+score);
+            msgBox.setContentText("Your score is "+score);
             msgBox.setCustomImage(R.drawable.lumayan);
 
             msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -439,7 +430,7 @@ public class KuisKataActivity extends AppCompatActivity {
             SweetAlertDialog msgBox = new SweetAlertDialog(this, SweetAlertDialog.CUSTOM_IMAGE_TYPE);
             msgBox.setCancelable(false);
             msgBox.setTitle("Loser!");
-            msgBox.setContentText("Your Score: "+score);
+            msgBox.setContentText("Your score is "+score);
             msgBox.setCustomImage(R.drawable.jelek);
 
             msgBox.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {

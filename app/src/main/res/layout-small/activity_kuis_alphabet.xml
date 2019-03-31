@@ -32,47 +32,54 @@
                     android:layout_centerInParent="true"
                     android:scaleY="7"
                     android:scaleX="6"
-                    android:src="@drawable/sentence" />
+                    android:src="@drawable/alpha" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="65dp"
             android:background="#513315"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="65dp"
                 android:gravity="center">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:paddingTop="5dp">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/white_coin"/>
                     <TextView
                         android:id="@+id/score"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentTop="true"
+                        android:layout_height="20dp"
                         android:text="0"
                         android:textColor="#ffff"
-                        android:textSize="18dp" />
+                        android:textSize="20dp"
+                        android:paddingLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:paddingRight="15dp">
                     <TextView
                         android:id="@+id/count"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:paddingRight="20dp"
-                        android:text="/10"
+                        android:layout_height="20dp"
+                        android:text="0/10"
                         android:textColor="#ffff"
-                        android:textSize="18dp" />
-                </RelativeLayout>
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,9 +122,9 @@
 
         <RelativeLayout
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/lengkung"
             android:gravity="center"
             android:paddingLeft="10dp">
@@ -128,14 +135,15 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="PI"
-                android:textSize="15dp"/>
+                android:textSize="15dp"
+                android:textColor="@color/text_color"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/lengkung"
             android:gravity="center"
             android:paddingLeft="10dp">
@@ -146,12 +154,13 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="BI"
-                android:textSize="15dp"/>
+                android:textSize="15dp"
+                android:textColor="@color/text_color"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@drawable/lengkung"
             android:gravity="center"
@@ -163,7 +172,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="TI"
-                android:textSize="15dp"/>
+                android:textSize="15dp"
+                android:textColor="@color/text_color"/>
         </RelativeLayout>
 
     </LinearLayout>
